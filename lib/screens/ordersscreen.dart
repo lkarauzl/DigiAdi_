@@ -137,7 +137,7 @@ class _OrdersScreenState extends State<OrdersScreen> with TickerProviderStateMix
               
               for (var item in items) {
                 final itemData = item as Map<String, dynamic>;
-                final price = itemData['price'] as double? ?? 0.0;
+                final price = (itemData['price'] as num?)?.toDouble() ?? 0.0;
                 final quantity = itemData['quantity'] as int? ?? 0;
                 totalAmount += (price * quantity);
               }
